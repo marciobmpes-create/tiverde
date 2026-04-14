@@ -1,16 +1,37 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+/* ========================================
+   Index - Página principal do site TI Verde
+   Reúne todas as seções em uma single-page
+   ======================================== */
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import EficienciaSection from "@/components/EficienciaSection";
+import LixoSection from "@/components/LixoSection";
+import CloudSection from "@/components/CloudSection";
+import DataCentersSection from "@/components/DataCentersSection";
+import ODS12Section from "@/components/ODS12Section";
+import DashboardSection from "@/components/DashboardSection";
+import Footer from "@/components/Footer";
+
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen">
+      {/* Menu de navegação fixo no topo */}
+      <Navbar />
+
+      {/* Seções do site em ordem */}
+      <HeroSection />
+      <EficienciaSection />
+      <LixoSection />
+      <CloudSection />
+      <DataCentersSection />
+      <ODS12Section />
+      <DashboardSection />
+
+      {/* Rodapé */}
+      <Footer />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
