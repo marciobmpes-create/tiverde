@@ -1,132 +1,76 @@
 /* ========================================
-   DashboardSection - Pesquisas reais
-   Exibe os formulários incorporados das
-   pesquisas com Público e com Empresas
-   organizados em abas responsivas.
+   DashboardSection - Dashboards interativos
+   Exibe dashboards reais via iframe
    ======================================== */
 
-import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-/* ---- Configuração das pesquisas reais ---- */
-/* Cada item representa um gráfico/pesquisa incorporada.
-   Para adicionar mais, basta inserir novos objetos nos arrays. */
-
-type Pesquisa = {
+interface DashboardItem {
   titulo: string;
-  descricao?: string;
+  descricao: string;
   src: string;
-  height: number; // altura original do embed
-};
+}
 
-const pesquisasPublico: Pesquisa[] = [
+const dashboards: DashboardItem[] = [
   {
-    titulo: "Pesquisa com o Público",
-    descricao:
-      "Formulário aplicado ao público geral para avaliar percepção sobre TI Verde.",
-    src: "https://docs.google.com/forms/d/e/1FAIpQLSe1NVwCDwgyfw4Fg5cjDwdaKj9ogGI18DulQPtRugwoltPBYw/viewform?embedded=true",
-    height: 4039,
+    titulo: "Dashboard — Público",
+    descricao: "Resultados e análises das respostas do público.",
+    src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTvdA3H4pWRajC5QxF7dAT1QiomsJddYF5kheiDcoo8vrwx0P_3fCxaEBCPSEReQW24CbcMMn2ei3iB/pubhtml?widget=true&headers=false",
+  },
+  {
+    titulo: "Dashboard — Empresa",
+    descricao: "Resultados e análises das respostas coletadas com empresas.",
+    src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR0I4I-lXjXFJw5px521B0lx90t5UlGGj1PO7hmLeZVfqNQVuuHjaN_eT33yYUeqzkBCC9CeMiZkvmO/pubhtml?widget=true&headers=false",
   },
 ];
-
-const pesquisasEmpresas: Pesquisa[] = [
-  {
-    titulo: "Pesquisa com Empresas",
-    descricao:
-      "Formulário aplicado a empresas para mapear práticas sustentáveis de TI.",
-    src: "https://docs.google.com/forms/d/e/1FAIpQLSdioqrmDMFRGsvkaiexm1HuS5jazEIC8xmkFP0iU58Em1mahw/viewform?embedded=true",
-    height: 2982,
-  },
-];
-
-/* ---- Card individual com iframe responsivo ---- */
-const PesquisaCard = ({ pesquisa }: { pesquisa: Pesquisa }) => {
-  const [carregado, setCarregado] = useState(false);
-  const [erro, setErro] = useState(false);
-
-  return (
-    <Card className="card-hover fade-in-up overflow-hidden border-primary/10">
-      <CardHeader>
-        <CardTitle className="text-lg text-card-foreground">
-          {pesquisa.titulo}
-        </CardTitle>
-        {pesquisa.descricao && (
-          <p className="text-sm text-muted-foreground">{pesquisa.descricao}</p>
-        )}
-      </CardHeader>
-      <CardContent>
-        <div
-          className="relative w-full rounded-md overflow-hidden bg-muted/40"
-          style={{ height: `${Math.min(pesquisa.height, 800)}px` }}
-        >
-          {/* Estado de carregamento / erro */}
-          {!carregado && !erro && (
-            <div className="absolute inset-0 flex items-center justify-center text-sm text-muted-foreground animate-pulse">
-              Carregando pesquisa…
-            </div>
-          )}
-          {erro && (
-            <div className="absolute inset-0 flex items-center justify-center text-sm text-muted-foreground px-4 text-center">
-              Não foi possível carregar a pesquisa no momento. Tente novamente
-              mais tarde.
-            </div>
-          )}
-
-          {/* Iframe real da pesquisa */}
-          <iframe
-            src={pesquisa.src}
-            title={pesquisa.titulo}
-            className="w-full h-full border-0"
-            loading="lazy"
-            onLoad={() => setCarregado(true)}
-            onError={() => setErro(true)}
-          >
-            Carregando…
-          </iframe>
-        </div>
-      </CardContent>
-    </Card>
-  );
-};
 
 const DashboardSection = () => {
   return (
-    <section id="dashboard" className="py-16 bg-secondary/30">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 text-foreground">
-          📊 Dashboard — Pesquisas de Campo
-        </h2>
-        <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
-          Resultados reais coletados nas pesquisas aplicadas ao público e às
-          empresas sobre práticas de TI Verde.
-        </p>
+    <section id="dashboard" className="py-16 md:py-24 bg-secondary/30">
+      <div className="container mx-auto px-4 max-w-6xl">
+        {/* Cabeçalho da seção */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
+            Dashboard Interativo da Pesquisa
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Visualização dinâmica dos resultados coletados sobre TI Verde.
+          </p>
+        </div>
 
-        {/* Navegação por abas */}
-        <Tabs defaultValue="publico" className="w-full">
-          <TabsList className="grid grid-cols-2 w-full max-w-md mx-auto mb-8">
-            <TabsTrigger value="publico">Público</TabsTrigger>
-            <TabsTrigger value="empresas">Empresas</TabsTrigger>
-          </TabsList>
-
-          {/* Aba Público */}
-          <TabsContent value="publico">
-            <div className="grid gap-6 md:grid-cols-1">
-              {pesquisasPublico.map((p, i) => (
-                <PesquisaCard key={i} pesquisa={p} />
-              ))}
-            </div>
-          </TabsContent>
-
-          {/* Aba Empresas */}
-          <TabsContent value="empresas">
-            <div className="grid gap-6 md:grid-cols-1">
-              {pesquisasEmpresas.map((p, i) => (
-                <PesquisaCard key={i} pesquisa={p} />
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
+        {/* Grid dos dashboards */}
+        <div className="grid gap-10 md:gap-12">
+          {dashboards.map((db, index) => (
+            <Card
+              key={index}
+              className="overflow-hidden border border-border/60 shadow-md hover:shadow-lg transition-shadow duration-300 bg-card"
+            >
+              <CardHeader className="pb-4">
+                <CardTitle className="text-xl md:text-2xl text-card-foreground">
+                  {db.titulo}
+                </CardTitle>
+                <p className="text-sm md:text-base text-muted-foreground mt-1">
+                  {db.descricao}
+                </p>
+              </CardHeader>
+              <CardContent className="px-4 pb-4 md:px-6 md:pb-6">
+                <div
+                  className="relative w-full rounded-lg overflow-hidden border border-border/40 bg-muted/30"
+                  style={{ minHeight: "700px" }}
+                >
+                  <iframe
+                    src={db.src}
+                    title={db.titulo}
+                    className="w-full h-full absolute inset-0 border-0"
+                    style={{ minHeight: "700px" }}
+                    loading="lazy"
+                    allow="fullscreen"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
