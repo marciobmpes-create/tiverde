@@ -40,13 +40,6 @@ const graficosPublico: GraficoItem[] = [
     width: 600,
     height: 371,
   },
-  {
-    titulo: "Como a tecnologia pode ajudar o meio ambiente?",
-    descricao: "Percepção do público sobre tecnologia sustentável.",
-    src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTpLamq5xgz14B0qnrnwXbli-0Jbc6ww64ssRffV-NVpwiytjTCz5KeCY-v6CiidfOpl3-Tl1aihabK/pubchart?oid=1366683510&format=interactive",
-    width: 600,
-    height: 371,
-  },
 ];
 
 /* ========================================
@@ -61,16 +54,16 @@ const graficosEmpresa: GraficoItem[] = [
     height: 371,
   },
   {
-    titulo: "Benefícios da TI Verde",
+    titulo: "Benefícios da T.I Verde",
     descricao: "Benefícios que as empresas acreditam obter.",
-    src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTpLamq5xgz14B0qnrnwXbli-0Jbc6ww64ssRffV-NVpwiytjTCz5KeCY-v6CiidfOpl3-Tl1aihabK/pubchart?oid=705198308&format=interactive",
+    src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTpLamq5xgz14B0qnrnwXbli-0Jbc6ww64ssRffV-NVpwiytjTCz5KeCY-v6CiidfOpl3-Tl1aihabK/pubchart?oid=376349589&format=interactive",
     width: 600,
     height: 371,
   },
   {
     titulo: "Dificuldades no descarte correto do lixo eletrônico",
     descricao: "Principais obstáculos enfrentados pelas empresas.",
-    src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTpLamq5xgz14B0qnrnwXbli-0Jbc6ww64ssRffV-NVpwiytjTCz5KeCY-v6CiidfOpl3-Tl1aihabK/pubchart?oid=278018177&format=interactive",
+    src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTpLamq5xgz14B0qnrnwXbli-0Jbc6ww64ssRffV-NVpwiytjTCz5KeCY-v6CiidfOpl3-Tl1aihabK/pubchart?oid=2040830578&format=interactive",
     width: 600,
     height: 371,
   },
