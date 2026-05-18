@@ -109,18 +109,18 @@ const GraficoCard = ({ grafico, delay }: { grafico: GraficoItem; delay: number }
               </div>
             </div>
           )}
-          <iframe
-            src={grafico.src}
-            title={grafico.titulo}
-            className="w-full border-0"
-            style={{
-              height: "371px",
-              display: "block",
-            }}
-            seamless
-            scrolling="no"
-            onLoad={() => setCarregado(true)}
-          />
+          <div
+            className="relative w-full"
+            style={{ aspectRatio: `${grafico.width} / ${grafico.height}` }}
+          >
+            <iframe
+              src={grafico.src}
+              title={grafico.titulo}
+              className="w-full h-full border-0 absolute inset-0"
+              loading="lazy"
+              onLoad={() => setCarregado(true)}
+            />
+          </div>
         </div>
       </CardContent>
     </Card>
