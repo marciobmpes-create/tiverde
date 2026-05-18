@@ -34,6 +34,20 @@ const graficosPublico: GraficoItem[] = [
     height: 371,
   },
   {
+    titulo: "Você usa celular ou computador todos os dias?",
+    descricao: "Dados sobre uso diário de dispositivos tecnológicos e quantidade de horas.",
+    src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTvdA3H4pWRajC5QxF7dAT1QiomsJddYF5kheiDcoo8vrwx0P_3fCxaEBCPSEReQW24CbcMMn2ei3iB/pubchart?oid=2038628655&format=interactive",
+    width: 600,
+    height: 371,
+  },
+  {
+    titulo: "Você prefere consertar ou comprar um novo aparelho?",
+    descricao: "Comportamento do público quanto à manutenção vs reposição de dispositivos.",
+    src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTvdA3H4pWRajC5QxF7dAT1QiomsJddYF5kheiDcoo8vrwx0P_3fCxaEBCPSEReQW24CbcMMn2ei3iB/pubchart?oid=1749552550&format=interactive",
+    width: 600,
+    height: 371,
+  },
+  {
     titulo: "Qual o maior problema causado pela tecnologia hoje?",
     descricao: "Opinião do público sobre impactos tecnológicos atuais.",
     src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTpLamq5xgz14B0qnrnwXbli-0Jbc6ww64ssRffV-NVpwiytjTCz5KeCY-v6CiidfOpl3-Tl1aihabK/pubchart?oid=868453597&format=interactive",
@@ -46,6 +60,20 @@ const graficosPublico: GraficoItem[] = [
    DADOS - Pesquisa as Empresas
    ======================================== */
 const graficosEmpresa: GraficoItem[] = [
+  {
+    titulo: "Número aproximado de computadores na unidade",
+    descricao: "Quantidade de dispositivos computacionais utilizados nas empresas participantes.",
+    src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR0I4I-lXjXFJw5px521B0lx90t5UlGGj1PO7hmLeZVfqNQVuuHjaN_eT33yYUeqzkBCC9CeMiZkvmO/pubchart?oid=722274884&format=interactive",
+    width: 600,
+    height: 371,
+  },
+  {
+    titulo: "Qual o destino principal do lixo eletrônico?",
+    descricao: "Práticas adotadas pelas empresas para descarte de equipamentos como mouse, cabos e PCs velhos.",
+    src: "https://docs.google.com/spreadsheets/d/e/2PACX-1vR0I4I-lXjXFJw5px521B0lx90t5UlGGj1PO7hmLeZVfqNQVuuHjaN_eT33yYUeqzkBCC9CeMiZkvmO/pubchart?oid=2001215212&format=interactive",
+    width: 600,
+    height: 371,
+  },
   {
     titulo: "A empresa conhece o conceito de TI Verde?",
     descricao: "Empresas e práticas sustentáveis adotadas.",
