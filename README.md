@@ -1,3 +1,1 @@
-# Welcome to your Lovable project
-
-TODO: Document your project here
+Projeto acadêmico sobre T.I Verde com foco em sustentabilidade, eficiência energética, descarte consciente de lixo eletrônico e visualização de dados interativa.
