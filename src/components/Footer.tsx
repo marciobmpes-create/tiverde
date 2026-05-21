@@ -17,7 +17,7 @@ const Footer = () => {
           Trabalho acadêmico sobre Tecnologia da Informação Sustentável
         </p>
         <p className="text-xs opacity-60 mt-2">
-          © {new Date().getFullYear()} — Dados fictícios para fins educacionais
+          © {new Date().getFullYear()}
         </p>
       </div>
     </footer>
